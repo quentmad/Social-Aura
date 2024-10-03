@@ -1,0 +1,130 @@
+.posts-list {
+    max-width: 800px; /* Limite la largeur de la liste */
+    margin: 0 auto;   /* Centre la liste sur la page */
+    padding: 0px;    /* Ajoute de l'espace autour */
+  }
+  
+  .post-card {
+    background-color: #f9f9f9; /* Fond gris clair pour chaque post */
+    border: 1px solid #ddd;    /* Bordure légère */
+    border-radius: 8px;        /* Coins arrondis */
+    padding: 20px;             /* Espace intérieur plus grand */
+    margin-bottom: 20px;       /* Espacement entre les posts */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    position: relative;        /* Pour positionner l'étoile en bas à droite */
+    transition: transform 0.2s; /* Effet de transition pour le hover */
+    min-height: 150px;    /* Assure une hauteur minimale pour le post */
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px); /* Effet d'élévation au hover */
+  }
+  
+  .post-header {
+    margin-bottom: 15px; /* Espacement sous le titre */
+  }
+  
+  .post-title {
+    font-size: 1.6em;    /* Taille de la police du titre */
+    color: #007bff;      /* Couleur bleu pour le titre */
+    margin-bottom: 5px;  /* Espace sous le titre */
+  }
+  
+  .post-author {
+    font-size: 0.9em;    /* Taille de la police pour l'auteur */
+    color: #777;         /* Couleur grise pour l'auteur */
+  }
+  
+  .post-content {
+    font-size: 1.1em;    /* Taille de la police du contenu */
+    color: #555;         /* Couleur du contenu */
+    margin: 15px 0;      /* Marges verticales plus grandes */
+  }
+  
+  .posts-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative; /* Positionnement relatif pour le conteneur parent */
+  }
+  
+  .post-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;  /* Conteneur parent pour le positionnement absolu des favoris */
+  }
+  
+  .post-favorites {
+    position: absolute;
+    top: 14px;          /* Positionne juste au-dessus du bord inférieur */
+    right: 14px;        /* Place à droite */
+    font-size: 1.1em;
+    color: #007bff93;   /* Couleur bleutée pour l'étoile */
+    display: flex;      /* Affiche l'étoile et le nombre en ligne */
+    align-items: center;/* Centre verticalement le contenu */
+  }
+  
+  .post-favorites .favorite-icon {
+    margin-right: 5px;  /* Espace entre l'étoile et le nombre */
+    font-size: 1.3em;   /* Taille de l'étoile un peu plus grande */
+  }
+  
+  .post-comments {
+    margin-top: 40px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-left: 4px solid #007bff;
+    border-radius: 5px;
+  }
+  
+  .post-comments h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px; 
+    color: #007bff;
+  }
+  
+  
+  .post-comments {
+    margin-top: 20px;    /* Espace au-dessus des commentaires */
+    padding: 15px;       /* Espace interne */
+    background-color: #f0f0f0; /* Fond plus clair pour les commentaires */
+    border-left: 4px solid #215b98; /* Bande bleue à gauche des commentaires */
+    border-radius: 5px;  /* Coins arrondis */
+  }
+  
+  .post-comments h4 {
+    font-size: 1.1em;
+    margin-bottom: 10px;  /* Espace sous le titre des commentaires */
+    color: #215b98;       /* Couleur du titre des commentaires */
+  }
+  
+  .post-comments ul {
+    list-style-type: none; /* Enlève les puces de la liste */
+    padding-left: 0;       /* Supprime le décalage par défaut */
+    margin: 0;
+  }
+  
+  .post-comments li {
+    font-size: 0.9em;
+    margin-bottom: 15px; /* Espacement entre chaque commentaire */
+    padding: 10px;       /* Espace interne pour les commentaires */
+    background-color: #fff; /* Fond blanc pour les commentaires individuels */
+    border: 1px solid #ddd; /* Bordure légère autour des commentaires */
+    border-radius: 5px;     /* Coins arrondis */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Ombre légère pour les commentaires */
+  }
+  
+  .post-comments li p {
+    margin: 5px 0; /* Réduit l'espacement vertical pour les commentaires */
+  }
+  
+  .no-comments {
+    font-size: 0.9em;
+    color: #999;   /* Couleur grise pour l'absence de commentaires */
+    font-style: italic; /* Style italique pour indiquer l'absence de commentaires */
+  }
+  

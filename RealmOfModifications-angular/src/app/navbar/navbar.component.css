@@ -1,0 +1,41 @@
+/* Style de base pour la barre de navigation */
+nav {
+    background-color: #1e272e; /* Couleur de fond sombre */
+    padding: 1rem 2rem; /* Espacement intérieur */
+    display: flex; /* Utilisation de Flexbox */
+    justify-content: space-between; /* Espacement entre les éléments */
+    align-items: center; /* Centrage vertical des éléments */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombre pour donner de la profondeur */
+}
+
+/* Style des liens dans la barre de navigation */
+nav a {
+    color: #ffffff; /* Couleur des liens */
+    text-decoration: none; /* Pas de soulignement */
+    font-size: 1rem; /* Taille du texte */
+    font-weight: 500; /* Poids du texte */
+    margin: 0 1rem; /* Espacement entre les liens */
+    padding: 0.5rem 1rem; /* Espacement intérieur des liens */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s, transform 0.3s; /* Transition pour l'effet de survol */
+}
+
+/* Effet de survol sur les liens */
+nav a:hover {
+    background-color: #52636c; /* Couleur de fond au survol */
+    transform: translateY(-2px); /* Légère élévation au survol */
+}
+
+/* Style pour le lien actif */
+nav a.active {
+    background-color: #ff4757; /* Couleur de fond pour le lien actif */
+    color: #ffffff; /* Couleur du texte pour le lien actif */
+}
+
+/* Ajout d'une petite animation au logo */
+.nav-logo {
+    font-size: 1.5rem; /* Taille du logo */
+    font-weight: bold; /* Poids du texte */
+    color: #ffffff; /* Couleur du logo */
+}
+

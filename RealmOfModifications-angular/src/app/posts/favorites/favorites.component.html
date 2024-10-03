@@ -1,0 +1,35 @@
+<div class="posts-list">
+    <div *ngFor="let post of postsFav" class="post-card">
+      <div class="post-header">
+        <h2 class="post-title">{{ post.userName }} {{ post.userLastName }}</h2>
+        <p class="post-author">Publié le : {{ post.createdAt }}</p>
+      </div>
+  
+      <div class="post-content">
+        <p>{{ post.content }}</p>
+      </div>
+  
+      <!-- Affichage du nombre de favoris avec une étoile -->
+      <div class="post-favorites">
+        <span class="favorite-icon">&#9733;</span>
+        <span class="favorite-count">{{ favoritesCountByPostId[post.id] }}</span>
+      </div>
+  
+      <!-- Section des commentaires -->
+      <div class="post-comments" *ngIf="commentsByPostId[post.id] && commentsByPostId[post.id].length > 0">
+        <h4>Commentaires :</h4>
+        <ul>
+          <li *ngFor="let comment of commentsByPostId[post.id]">
+            <strong>{{ comment.userName }} {{ comment.userLastName }} :</strong>
+            <p>{{ comment.content }}</p>
+            <small>Publié le : {{ comment.createdAt }}</small>
+          </li>
+        </ul>
+      </div>
+  
+      <div *ngIf="commentsByPostId[post.id] && commentsByPostId[post.id].length === 0">
+        <p class="no-comments">Aucun commentaire pour ce post.</p>
+      </div>
+    </div>
+  </div>
+  

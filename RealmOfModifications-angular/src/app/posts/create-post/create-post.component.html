@@ -1,0 +1,21 @@
+<div class="create-post-container">
+  <h2>Créer un Nouveau Post</h2>
+  
+  <form #createPostForm="ngForm" (ngSubmit)="onSubmit(createPostForm)">
+    <div class="form-group">
+      <label for="title">Titre</label>
+      <input type="text" id="title" name="title" ngModel required>
+    </div>
+    
+    <div class="form-group">
+      <label for="content">Contenu</label>
+      <textarea id="content" name="content" ngModel required></textarea>
+    </div>
+    
+    <button type="submit" [disabled]="createPostForm.invalid">Créer le Post</button>
+  </form>
+  
+  <div *ngIf="isSubmitted" class="confirmation-message">
+    Votre post a été créé avec succès !
+  </div>
+</div>

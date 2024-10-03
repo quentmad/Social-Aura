@@ -1,0 +1,14 @@
+<nav>
+  <div class="nav-logo">Social-Aura</div>
+  <div>
+      <a (click)="navigateTo('/posts')">Posts</a>
+      <a (click)="navigateTo('/favorites')">Favorites</a>
+      <a (click)="navigateTo('/create-post')">Create Post</a>
+      <a (click)="navigateTo('/user-profile')">Profile</a>
+      <a (click)="navigateTo('/login')">Login</a>
+  </div>
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="username or tag" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
