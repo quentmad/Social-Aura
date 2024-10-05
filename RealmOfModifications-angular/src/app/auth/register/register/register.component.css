@@ -5,8 +5,8 @@ body {
     background-color: #f4f4f4; /* Couleur de fond douce */
 }
 
-/* Conteneur principal pour le formulaire de connexion */
-.login-container {
+/* Conteneur principal pour le formulaire d'inscription */
+.register-container {
     display: flex;
     flex-direction: column; /* Colonne pour les éléments du formulaire */
     justify-content: center; /* Centre verticalement */
@@ -21,25 +21,25 @@ body {
 }
 
 /* Style pour le titre */
-.login-container h2 {
-    margin-bottom: 80px; /* Espace en bas du titre */
+.register-container h2 {
+    margin-bottom: 20px; /* Espace en bas du titre */
     color: #333; /* Couleur du texte */
 }
 
 /* Style pour le formulaire */
-.login-container form {
+.register-container form {
     width: 100%; /* Remplit le conteneur */
 }
 
 /* Style pour les étiquettes */
-.login-container label {
+.register-container label {
     display: block; /* Chaque étiquette sur une nouvelle ligne */
     margin-bottom: 5px; /* Espacement entre étiquette et champ */
     color: #555; /* Couleur du texte */
 }
 
 /* Style pour les champs de saisie */
-.login-container input {
+.register-container input {
     width: 100%; /* Champs remplissent toute la largeur */
     padding: 10px; /* Espacement interne */
     margin-bottom: 15px; /* Espacement entre les champs */
@@ -48,8 +48,8 @@ body {
     font-size: 16px; /* Taille de police */
 }
 
-/* Style pour le bouton de connexion */
-.login-container button {
+/* Style pour le bouton d'inscription */
+.register-container button {
     width: 100%; /* Bouton remplit toute la largeur */
     padding: 10px; /* Espacement interne */
     background-color: #007bff; /* Couleur de fond bleue */
@@ -62,12 +62,6 @@ body {
 }
 
 /* Effet au survol du bouton */
-.login-container button:hover {
+.register-container button:hover {
     background-color: #0056b3; /* Couleur de fond plus foncée au survol */
-}
-
-/* Style pour le message d'erreur */
-.login-container .error-message {
-    color: red; /* Couleur rouge pour les messages d'erreur */
-    margin-top: 10px; /* Espace au-dessus du message d'erreur */
 }

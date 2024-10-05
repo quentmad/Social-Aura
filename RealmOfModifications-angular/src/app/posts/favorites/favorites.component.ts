@@ -3,6 +3,7 @@ import {PostResponse, CommentResponse } from '../posts.service';
 import { FavoritesService } from './favorites.service';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-favorites',
   standalone: true,
@@ -11,9 +12,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './favorites.component.css'
 })
 export class FavoritesComponent {
-  postsFav: PostResponse[] = []; // Stocke les posts en favori par l'utilisateur
-  commentsByPostId: { [postId: number]: CommentResponse[] } = {}; // Stocke les commentaires par postId
-  favoritesCountByPostId: { [postId: number]: number } = {}; // Stocke le nombre de favoris par postId
+  postsFav: PostResponse[] = []; 
+  commentsByPostId: { [postId: number]: CommentResponse[] } = {}; 
+  favoritesCountByPostId: { [postId: number]: number } = {}; 
 
   constructor(private favoritesService: FavoritesService) {}
 
@@ -26,8 +27,8 @@ export class FavoritesComponent {
           (data) => {
               this.postsFav = data; // Stocke les posts récupérés
               this.postsFav.forEach(post => {
-                  this.loadCommentsForPost(post.id); // Charge les commentaires pour chaque post
-                  this.loadFavoriteCountForPost(post.id); // Charge le nombre de favoris pour chaque post
+                  this.loadCommentsForPost(post.id);
+                  this.loadFavoriteCountForPost(post.id); 
               });
           },
           (error) => {
@@ -50,8 +51,8 @@ export class FavoritesComponent {
   loadFavoriteCountForPost(postId: number): void {
       this.favoritesService.getFavoriteCountByPost(postId).subscribe(
           (count) => {
-              console.log(`Post ID: ${postId}, Favorites Count: ${count}`); // Ajoute un log ici
-              this.favoritesCountByPostId[postId] = count; // Stocke le nombre de favoris pour chaque post
+              //console.log(`Post ID: ${postId}, Favorites Count: ${count}`);
+              this.favoritesCountByPostId[postId] = count;
           },
           (error) => {
               console.error('Erreur lors de la récupération du nombre de favoris pour le post ' + postId, error);
