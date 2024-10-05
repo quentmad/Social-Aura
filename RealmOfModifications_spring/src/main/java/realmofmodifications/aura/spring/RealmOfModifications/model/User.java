@@ -48,6 +48,13 @@ public class User {
     public User() {
     }
 
+    public User(String email, String name, String lastName, String password) {
+        this.email = email;
+        this.name = name;
+        this.lastName = lastName;
+        this.password = password;
+    }
+
     public int getId() {
         return id;
     }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { TokenService } from '../auth/token.service';
 
 export interface PostResponse {
   id: number;
@@ -48,21 +49,32 @@ export class PostsService {
     private commentsApiUrl = 'http://localhost:8080/api/comments/post';
     private favoriteQuantityApiUrl = 'http://localhost:8080/api/favorites/post/nb';
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private tokenService: TokenService) {}
+
 
     getPosts(): Observable<PostResponse[]> {
-        return this.http.get<PostResponse[]>(this.postsApiUrl);
-    }
+      const token = this.tokenService.getToken(); // Récupération du token du stockage local
+      console.log('Token récupéré pour getPosts:', token); // Ajoutez cette ligne
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); // Création des en-têtes
+
+      return this.http.get<PostResponse[]>(this.postsApiUrl, { headers }); // Envoi des en-têtes avec la requête
+  }
 
     getCommentsByPost(postId: number): Observable<CommentResponse[]> {
+      const token = this.tokenService.getToken(); 
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       const url = `${this.commentsApiUrl}/${postId}`;
-      return this.http.get<CommentResponse[]>(url);
-    }
 
-    getFavoriteCountByPost(postId: number): Observable<number> {
+      return this.http.get<CommentResponse[]>(url, { headers });
+  }
+
+  getFavoriteCountByPost(postId: number): Observable<number> {
+      const token = this.tokenService.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       const url = `${this.favoriteQuantityApiUrl}/${postId}`;
-      return this.http.get<number>(url);
-    }
+
+      return this.http.get<number>(url, { headers }); 
+  }
     
 
 }

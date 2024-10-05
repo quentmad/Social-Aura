@@ -1,0 +1,62 @@
+= Sécurité de l'API
+
+== 1. Routes Protégées
+
+Les routes protégées sont celles qui nécessitent une authentification pour y accéder. Dans ce code, les autorisations sont spécifiés dans la configuration de sécurité (*SecurityConfig*). Voici comment cela fonctionne :
+
+=== Routes publiques (non protégées) :
+    GET /api/auth/login
+    POST /api/auth/login
+    POST /api/auth/register
+    GET /api/postimages/** (pour les images)
+
+Ces routes permettent à tous les utilisateurs d'accéder sans avoir besoin de s'authentifier. Les utilisateurs peuvent donc se connecter ou s'inscrire sans avoir de token.
+
+=== Routes protégées :
+Toute autre requête (définie par anyRequest().authenticated()) nécessite une authentification.
+
+== 2. Besoin d'un Token
+
+Les requêtes aux routes protégées nécessitent un token JWT. Cela inclut, mais ne se limite pas à :
+
+- Récupération des posts
+
+- Ajout de nouveaux posts
+
+- Commentaires sur des posts
+
+- Ajout ou suppression de favoris
+
+Tout appel à ces routes protégées doit inclure le token JWT dans l'en-tête de la requête.
+
+== 3. Obtention du Token
+
+Le token JWT est reçu lors du processus de connexion. Voici comment cela se déroule :
+
+- Inscription : Lorsque vous vous inscrivez via l'API (/register), un nouvel utilisateur est créé. L'utilisateur est ensuite authentifié et un token JWT est généré.
+
+- Connexion : Lorsqu'un utilisateur se connecte via l'API (/login), il envoie ses informations d'identification (email et mot de passe). Si les informations sont valides :
+    a. Le serveur authentifie l'utilisateur.
+
+    b. Le serveur génère un token JWT contenant des informations sur l'utilisateur (email, son ID et son fullName).
+
+    c. Ce token est renvoyé au client dans la réponse à la requête de connexion.
+
+== 4. Utilisation du Token
+
+Le token JWT doit être inclus dans l'en-tête Authorization de chaque requête vers les routes protégées. Voici comment l'inclure :
+
+
+    curl -X GET http://localhost:8080/api/posts \
+    -H "Authorization: Bearer votre_token_jwt"
+
+== 5. Vérification du Token
+
+Lorsque le serveur reçoit une requête pour une route protégée :
+
+- Extraction du Token : Le serveur extrait le token de l'en-tête Authorization.
+
+- Validation du Token : Le serveur vérifie si le token est valide :
+    a. Si le token est valide, le serveur permet l'accès à la ressource demandée.
+
+    b. Si le token est invalide ou expiré, le serveur renvoie une réponse 401 Unauthorized.

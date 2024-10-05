@@ -4,9 +4,6 @@ public class FavoriteAddRequest {
     private int postId;
     private int userId;
 
-    public FavoriteAddRequest() {
-    }
-
     public FavoriteAddRequest(int postId, int userId) {
         this.postId = postId;
         this.userId = userId;

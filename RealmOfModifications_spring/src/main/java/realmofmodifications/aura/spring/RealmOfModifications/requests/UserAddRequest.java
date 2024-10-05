@@ -8,9 +8,6 @@ public class UserAddRequest {
     private String email;
     private String password;
 
-    public UserAddRequest() {
-    }
-
     public UserAddRequest(String name, String lastName, int birth, String email, String password) {
         this.name = name;
         this.lastName = lastName;

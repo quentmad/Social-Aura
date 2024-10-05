@@ -7,9 +7,6 @@ public class CommentAddRequest {
     private int postId;
     private String content;
 
-    public CommentAddRequest() {
-    }
-
     public CommentAddRequest(int userId, int postId, String content) {
         this.userId = userId;
         this.postId = postId;

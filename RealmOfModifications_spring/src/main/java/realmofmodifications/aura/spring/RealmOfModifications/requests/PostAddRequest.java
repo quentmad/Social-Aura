@@ -4,9 +4,6 @@ public class PostAddRequest {
     private int userId;
     private String content;
 
-    public PostAddRequest() {
-    }
-
     public PostAddRequest(int userId, String content) {
         this.userId = userId;
         this.content = content;
